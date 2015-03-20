@@ -14,6 +14,8 @@ function sourceStream(objStream, keyStream) {
 function setupStream(view, obj, key, stream) {
   stream._objStream = obj;
   stream._keyStream = key;
+  stream._objLabel = obj && obj._label;
+  stream._keyLabel = key && key._label;
 
   stream._objStreamDidChange = function() {
     this.notify();
@@ -31,9 +33,8 @@ function setupStream(view, obj, key, stream) {
   stream._isGetHelperStream = true;
 }
 
-function getStream(view, obj, key) {
-  var accessKey = "get-helper:$%@-%@-$%@-%@".fmt(Em.guidFor(obj),obj._label,Em.guidFor(key),key._label);
-  accessKey = accessKey.replace(/\./,'-');
+function getStreamFromView(view, obj, key) {
+  var accessKey = "get-helper:$%@-$%@".fmt(Em.guidFor(obj),Em.guidFor(key));
 
   var stream = view.getStream(accessKey);
   if (!stream._isGetHelperStream) {
@@ -42,9 +43,9 @@ function getStream(view, obj, key) {
   return stream;
 }
 
-export default function getManager(view, obj, key) {
+export default function getStream(view, obj, key) {
   if (utils.isStream(obj) && utils.isStream(key)) {
-    return getStream(view, obj, key);
+    return getStreamFromView(view, obj, key);
   } else if (utils.isStream(obj) && !utils.isStream(key)) {
     return obj.get(key);
   } else if (!utils.isStream(obj) && !utils.isStream(key)) {

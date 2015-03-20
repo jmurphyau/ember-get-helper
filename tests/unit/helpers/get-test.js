@@ -1,6 +1,6 @@
 import Em from 'ember';
 import { module, test } from 'qunit';
-import { registerHelper } from '../../helpers/register-helper';
+import { registerHelper } from 'ember-get-helper/utils/register-helper';
 import getHelper from 'ember-get-helper/helpers/get';
 
 var Ember = Em;

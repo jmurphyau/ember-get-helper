@@ -1,6 +1,6 @@
 import getStream from '../utils/get-stream';
 
-export function getHelperUnbound(params, hash, options, env) {
+export function getHelper(params, hash, options, env) {
   if (arguments.length === 0) {
     return;
   }
@@ -13,4 +13,4 @@ export function getHelperUnbound(params, hash, options, env) {
 }
 
 
-export default getHelperUnbound;
+export default getHelper;
