@@ -1,7 +1,7 @@
 {
   "name": "ember-get-helper",
-  "version": "0.0.2",
-  "description": "The default blueprint for ember-cli addons.",
+  "version": "0.0.4",
+  "description": "Ember Get Helper for HTMLBars",
   "directories": {
     "doc": "doc",
     "test": "tests"
