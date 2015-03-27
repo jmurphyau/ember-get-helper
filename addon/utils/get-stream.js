@@ -1,11 +1,15 @@
 import Em from 'ember';
 
 var utils = Em.__loader.require('ember-metal/streams/utils');
+var Stream = Em.__loader.require('ember-metal/streams/stream')['default'];
+
+var NullStream = new Stream(function() { return null; });
 
 function sourceStream(objStream, keyStream) {
   var key = utils.read(keyStream);
+
   if (Em.isNone(key)) {
-    return null;
+    return NullStream;
   } else {
     return objStream.get(key);
   }
@@ -22,21 +26,29 @@ function setupStream(view, obj, key, stream) {
   };
 
   stream._keyStreamDidChange = function() {
-    this.setSource(sourceStream(obj, key));
+    this._setSourceStream(sourceStream(obj, key));
     this.notify();
+  };
+
+  stream._setSourceStream = function(newStream) {
+    if (newStream !== this.stream) {
+      utils.unsubscribe(this.stream, this._onNotify, this);
+      this.stream = newStream;
+      utils.subscribe(this.stream, this._onNotify, this);
+    }
   };
 
   utils.subscribe(obj, stream._objStreamDidChange, stream);
   utils.subscribe(key, stream._keyStreamDidChange, stream);
 
-  stream.setSource(sourceStream(obj, key));
+  stream._setSourceStream(sourceStream(obj, key));
   stream._isGetHelperStream = true;
 }
 
 function getStreamFromView(view, obj, key) {
   var accessKey = "get-helper:$%@-$%@".fmt(Em.guidFor(obj),Em.guidFor(key));
 
-  var stream = view.getStream(accessKey);
+  var stream = view._getBindingForStream(accessKey);
   if (!stream._isGetHelperStream) {
     setupStream(view, obj, key, stream);
   }
