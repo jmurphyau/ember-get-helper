@@ -1,5 +1,7 @@
 # Ember Get Helper for HTMLBars [![Build Status](https://travis-ci.org/jmurphyau/ember-get-helper.svg?branch=master)](https://travis-ci.org/jmurphyau/ember-get-helper)
 
+{{get}} helper - for when they key is dynamic
+
 `{{get}}` helper for your HTMLBars templates. Usage:
 
 ```hbs
