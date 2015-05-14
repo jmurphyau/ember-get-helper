@@ -63,7 +63,9 @@ function getHelperGlimmer(params, hash, options, env) {
     subscribeOnce(retStream, obj);
     return env.hooks.getValue(retStream);
   } else {
-    return objValue.get(keyValue);
+    if (objValue) {
+      return Ember.get(objValue, keyValue);
+    }
   }
 }
 
