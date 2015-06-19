@@ -2,12 +2,17 @@ import Em from 'ember';
 import { module, test } from 'qunit';
 import { registerHelper } from 'ember-get-helper/utils/register-helper';
 import getHelper from 'ember-get-helper/helpers/get';
+import getHelperGlimmer from 'ember-get-helper/helpers/get-glimmer';
 
 var Ember = Em;
 
 module('GetHelper', {
   beforeEach: function() {
-    registerHelper('get',getHelper);
+    if (Em.Helper) {
+      registerHelper('get', getHelperGlimmer);
+    } else {
+      registerHelper('get', getHelper);
+    }
   }
 });
 

@@ -16,12 +16,21 @@ function registerHelperIteration3(name, helperFunction) {
 	Ember.HTMLBars._registerHelper(name, helperFunction);
 }
 
+function registerHelperIteration4(name, helperFunction) {
+	//same as iteration 3 and only used as a documentation point
+	Ember.HTMLBars._registerHelper(name, helperFunction);
+}
+
 export function registerHelper(name, helperFunction) {
 	if (Ember.HTMLBars._registerHelper) {
 		if (Ember.HTMLBars.helpers) {
 			registerHelperIteration1(name, helperFunction);
 		} else {
-			registerHelperIteration3(name, helperFunction);
+			if (Ember.Helper) {
+				registerHelperIteration4(name, helperFunction);
+			} else {
+				registerHelperIteration3(name, helperFunction);
+			}
 		}
 	} else if (Ember.HTMLBars.registerHelper) {
 		registerHelperIteration2(name, helperFunction);
