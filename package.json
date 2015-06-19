@@ -1,7 +1,7 @@
 {
   "name": "ember-get-helper",
-  "version": "0.0.6",
-  "description": "Ember Get Helper for HTMLBars",
+  "version": "1.0.0",
+  "description": "ember-get-helper for Glimmer & the HTMLBars Templating Language.",
   "directories": {
     "doc": "doc",
     "test": "tests"
@@ -34,7 +34,8 @@
     "ember-try": "0.0.7"
   },
   "keywords": [
-    "ember-addon"
+    "ember-addon",
+    "ember-helpers"
   ],
   "dependencies": {
     "ember-cli-babel": "^5.0.0"

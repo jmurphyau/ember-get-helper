@@ -1,14 +1,16 @@
-# Ember Get Helper for HTMLBars [![Build Status](https://travis-ci.org/jmurphyau/ember-get-helper.svg?branch=master)](https://travis-ci.org/jmurphyau/ember-get-helper)
+# Ember Get Helper [![Build Status](https://travis-ci.org/jmurphyau/ember-get-helper.svg?branch=master)](https://travis-ci.org/jmurphyau/ember-get-helper)
 
-{{get}} helper - for when they key is dynamic
-
-`{{get}}` helper for your HTMLBars templates. Usage:
+`ember-get-helper` for Glimmer & the HTMLBars Templating Language. Usage:
 
 ```hbs
 {{get object key}}
 ```
 
-Example:
+## NOTICE
+- `ember-get-helper` has been included in Ember 2.0. Use of this package is deprecated and support for Ember 2.0 will not be maintained.
+- `Ember v1.13.0` is not supported due to a bug. Please use `Ember v1.13.1` and higher or `Ember v1.12.*` and lower
+
+## Examples
 
 ```js
 var person = Ember.Object.create({
