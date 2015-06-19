@@ -46,7 +46,9 @@ function setupStream(view, obj, key, stream) {
 }
 
 function getStreamFromView(view, obj, key) {
-  var accessKey = "get-helper:$%@-$%@".fmt(Em.guidFor(obj),Em.guidFor(key));
+  var objGuid = Em.guidFor(obj);
+  var keyGuid = Em.guidFor(key);
+  var accessKey = `get-helper:${objGuid}-${keyGuid}`;
 
   var stream = view._getBindingForStream(accessKey);
   if (!stream._isGetHelperStream) {
