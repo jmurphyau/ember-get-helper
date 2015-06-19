@@ -344,60 +344,6 @@ test('obj=[level:2], key=[level:1] - lookup EmberObject property at context prop
 
 });
 
-test('count lookups in context',  function(assert) {
-
-  var objectToLookup1 = Em.Object.create({
-    value1: 'blue',
-    value2: 'green'
-  });
-  var objectToLookup2 = Em.Object.create({
-    value1: 'kfc',
-    value2: 'mcdonalds'
-  });
-  var objectToLookup3 = Em.Object.create({
-    value1: 'purple',
-    value2: 'orange'
-  });
-  var objectToLookup4 = Em.Object.create({
-    value1: 'bread',
-    value2: 'cheese'
-  });
-
-  var parentObject = Em.Object.create({
-    color: objectToLookup1,
-    food: objectToLookup2
-  });
-
-  var view = Em.View.create({
-    context: {
-      foo: parentObject,
-      lookupKey: 'value1'
-    },
-    template: Em.HTMLBars.compile("{{get foo.color lookupKey}} {{get foo.food lookupKey}} {{get foo.color lookupKey}} {{get foo.food lookupKey}}"),
-  });
-
-  Em.run(view, 'appendTo', '#ember-testing');
-
-  assert.equal(view.$().text(), 'blue kfc blue kfc', 'value should be "blue kfc blue kfc"');
-
-  Em.run(view, 'set', 'context.lookupKey', 'value2');
-  assert.equal(view.$().text(), 'green mcdonalds green mcdonalds', 'value should be "green mcdonalds green mcdonalds"');
-
-  Em.run(parentObject, 'set', 'color', objectToLookup3);
-  assert.equal(view.$().text(), 'orange mcdonalds orange mcdonalds', 'value should be "orange mcdonalds orange mcdonalds"');
-
-  Em.run(parentObject, 'set', 'food', objectToLookup4);
-  assert.equal(view.$().text(), 'orange cheese orange cheese', 'value should be "orange cheese orange cheese"');
-
-  Em.run(view, 'set', 'context.lookupKey', 'value1');
-  assert.equal(view.$().text(), 'purple bread purple bread', 'value should be "purple bread purple bread"');
-
-  var lookupStreamKeys = Em.keys(view._getContextStream().children).filter(function(key) { return key.indexOf('get-helper:$') === 0; });
-  lookupStreamKeys = lookupStreamKeys || [];
-  assert.equal(lookupStreamKeys.length, 2, 'should only be 2 lookup streams in total');
-
-});
-
 test('obj=[level:2], key=[obj=[level:1], key=[level:1]] - lookup EmberObject property at context property dynamically with a nested lookup',  function(assert) {
 
   var objectToLookup1 = Em.Object.create({
