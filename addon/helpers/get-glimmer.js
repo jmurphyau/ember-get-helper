@@ -1,10 +1,13 @@
-import Em from 'ember';
+import Ember from 'ember';
 
-const Helper = Em.Helper || Em.Object;
-const { get, observer, defineProperty, setProperties, computed } = Em;
+const Helper = Ember.Helper || Ember.Object;
+const { get, observer, defineProperty, setProperties, computed } = Ember;
 const { oneWay } = computed;
 
 export default Helper.extend({
+  init() {
+    Ember.deprecate('ember-get-helper has been included in Ember 2.0. Use of this package is deprecated.');
+  },
 
   compute(params/*, hash*/) {
     setProperties(this, {
@@ -33,5 +36,5 @@ export default Helper.extend({
   contentDidChange: observer('content', function() {
     this.recompute();
   })
-  
+
 });
