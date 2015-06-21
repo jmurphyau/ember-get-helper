@@ -1,6 +1,6 @@
 {
   "name": "ember-get-helper",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "ember-get-helper for Glimmer & the HTMLBars Templating Language.",
   "directories": {
     "doc": "doc",
