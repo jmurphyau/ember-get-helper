@@ -5,11 +5,13 @@ import getHelper from 'ember-get-helper/helpers/get';
 import getHelperGlimmer from 'ember-get-helper/helpers/get-glimmer';
 
 export function initialize(/* container, application */) {
+  // Do not register helpers from Ember 1.13 onwards, starting from 1.13 they
+  // will be auto-discovered.
   if (Em.Helper) {
-    registerHelper('get', getHelperGlimmer);
-  } else {
-    registerHelper('get', getHelper);
+    return;
   }
+
+  registerHelper('get', getHelper);
 }
 
 export default {
