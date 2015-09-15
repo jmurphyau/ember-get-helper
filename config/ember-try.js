@@ -49,19 +49,32 @@ module.exports = {
       dependencies: { 'ember': '1.13.2' }
     },
     {
-      name: 'ember-release',
-      dependencies: { 'ember': 'components/ember#release' },
-      resolutions: { 'ember': 'release' }
+      name: 'ember-1.13.3',
+      dependencies: { 'ember': '1.13.3' }
     },
     {
-      name: 'ember-beta',
-      dependencies: { 'ember': 'components/ember#beta' },
-      resolutions: { 'ember': 'beta' }
+      name: 'ember-1.13.4',
+      dependencies: { 'ember': '1.13.4' }
     },
     {
-      name: 'ember-canary',
-      dependencies: { 'ember': 'components/ember#canary' },
-      resolutions: { 'ember': 'canary' }
+      name: 'ember-1.13.5',
+      dependencies: { 'ember': '1.13.5' }
+    },
+    {
+      name: 'ember-1.13.6',
+      dependencies: { 'ember': '1.13.6' }
+    },
+    {
+      name: 'ember-1.13.7',
+      dependencies: { 'ember': '1.13.7' }
+    },
+    {
+      name: 'ember-1.13.8',
+      dependencies: { 'ember': '1.13.8' }
+    },
+    {
+      name: 'ember-1.13.9',
+      dependencies: { 'ember': '1.13.9' }
     }
   ]
 };
