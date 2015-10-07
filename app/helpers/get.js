@@ -1,6 +1,6 @@
 import Ember from 'ember';
-import { getHelper } from 'ember-get-helpers/helpers/get';
-import getGlimmerHelper from 'ember-get-helpers/helpers/get-glimmer';
+import { getHelper } from 'ember-get-helper/helpers/get';
+import getGlimmerHelper from 'ember-get-helper/helpers/get-glimmer';
 
 var forExport = null;
 
