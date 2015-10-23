@@ -29,6 +29,7 @@ env:
   - EMBER_TRY_SCENARIO=ember-1.13.7
   - EMBER_TRY_SCENARIO=ember-1.13.8
   - EMBER_TRY_SCENARIO=ember-1.13.9
+  - EMBER_TRY_SCENARIO=ember-1.13.10
 
 matrix:
   fast_finish: true
