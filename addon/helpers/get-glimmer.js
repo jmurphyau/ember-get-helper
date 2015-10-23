@@ -5,10 +5,6 @@ const { get, observer, defineProperty, setProperties, computed } = Ember;
 const { oneWay } = computed;
 
 export default Helper.extend({
-  init() {
-    Ember.deprecate('ember-get-helper has been included in Ember 2.0. Use of this package is deprecated.');
-  },
-
   compute(params/*, hash*/) {
     setProperties(this, {
       obj: params[0],
