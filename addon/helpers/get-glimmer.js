@@ -22,7 +22,7 @@ export default Helper.extend({
 
   pathDidChange: observer('path', function() {
     const path = get(this, 'path');
-    if (path) {
+    if (!Ember.isNone(path)) {
       defineProperty(this, 'content', oneWay(`obj.${path}`));
     } else {
       defineProperty(this, 'content', null);
