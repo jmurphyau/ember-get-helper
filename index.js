@@ -8,6 +8,8 @@ module.exports = {
 
   init: function() {
     var checker = new VersionChecker(this);
+
+    this._super.init && this._super.init.apply(this, arguments);
     this._checkerForEmber = checker.for('ember', 'bower');
   },
 
