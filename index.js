@@ -7,6 +7,7 @@ module.exports = {
   name: 'ember-get-helper',
 
   init: function() {
+    this._super.init && this._super.init.apply(this, arguments);
     var checker = new VersionChecker(this);
     this._checkerForEmber = checker.for('ember', 'bower');
   },
