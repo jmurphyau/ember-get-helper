@@ -38,8 +38,19 @@ As a Subexpression:
 ```
 
 ## Install
+## Installation
 
-* `ember install:addon ember-get-helper`
+If you are using Ember CLI 0.2.3 or higher, just run within your project directory:
+
+```bash
+ember install ember-get-helper
+```
+
+If your Ember CLI version is less than 0.2.3, run the following within your project directory:
+
+```bash
+ember install:addon ember-get-helper
+```
 
 ## Other Helpers
 
