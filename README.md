@@ -13,12 +13,12 @@
 ## Examples
 
 ```js
-var person = Ember.Object.create({
+let person = Ember.Object.create({
   isOwner: false,
   isAdmin: true
 });
 
-var permissions = Ember.Object.create({
+let permissions = Ember.Object.create({
   addObject: 'isOwner',
   viewObject: 'isAdmin'
 });
@@ -39,7 +39,7 @@ As a Subexpression:
 
 ## Install
 
-* `ember install:addon ember-get-helper`
+* `ember install ember-get-helper`
 
 ## Other Helpers
 
