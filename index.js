@@ -13,7 +13,7 @@ module.exports = {
 
     this._super.init && this._super.init.apply(this, arguments);
 
-    this._emberVersionChecker = this.for('ember-source', 'npm');
+    this._emberVersionChecker = checker.for('ember-source', 'npm');
     if (!this._emberVersionChecker.version) {
       this._emberVersionChecker = checker.for('ember', 'bower');
     }
